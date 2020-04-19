@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class NumberWizards : MonoBehaviour
 {
     int min, max, guess;
-    public int maxGuesses;
+    int maxGuesses;
 
     public Text guessedText;
+    public Text maxGuessesText;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,8 @@ public class NumberWizards : MonoBehaviour
         min = 1;
         guess = 500;
         max += 1;
-        maxGuesses = 0;
+        maxGuesses = 8;
+        maxGuessesText.text = maxGuesses.ToString();
     }
 
     public void GuessLower()
@@ -34,14 +36,15 @@ public class NumberWizards : MonoBehaviour
     
     void GuessNumber()
     {
-        guess = (max + min) / 2;
-        guessedText.text = guess.ToString();
-        maxGuesses += 1;
-    
-        if (maxGuesses >= 5)
+        maxGuesses -= 1;
+        maxGuessesText.text = maxGuesses.ToString();
+        if (maxGuesses <= 0)
         {
             LoadLevelLost("Win");
         }
+        guess = (max + min) / 2;
+        guessedText.text = guess.ToString();
+        
     }
     public void LoadLevelLost(string name)
     {

@@ -612,7 +612,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Win! that was a right guess
+  m_Text: You Win! I couldn't guess your secret number
 --- !u!222 &1364851799
 CanvasRenderer:
   m_ObjectHideFlags: 0
